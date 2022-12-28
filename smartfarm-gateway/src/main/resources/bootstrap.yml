@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: smartfarm-gateway
+  cloud:
+    nacos:
+      config:
+        server-addr: 42.193.97.35:8848
+        file-extension: yml #配置的格式 yml
+        namespace: smart-farm
+        group: dev
