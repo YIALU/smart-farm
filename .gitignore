@@ -36,3 +36,15 @@ build/
 
 ### Mac OS ###
 .DS_Store
+/renren-fast/.gitignore
+/renren-fast/docker-compose.yml
+/renren-fast/Dockerfile
+/renren-fast/src/test/java/io/renren/DynamicDataSourceTest.java
+/renren-fast/src/test/java/io/renren/service/DynamicDataSourceTestService.java
+/renren-fast/src/test/java/io/renren/JwtTest.java
+/renren-fast/LICENSE
+/renren-fast/db/mysql.sql
+/renren-fast/db/oracle.sql
+/renren-fast/db/postgresql.sql
+/renren-fast/src/test/java/io/renren/RedisTest.java
+/renren-fast/db/sqlserver.sql
