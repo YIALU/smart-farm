@@ -1,10 +1,11 @@
-package com.ls.smartfarm.smartfarm
+package com.ls.smartfarm.device.dao;
 
--device.dao;
-
-import com.ls.smartfarm.smartfarm-device.entity.TemperatureEntity;
+import com.ls.smartfarm.device.entity.TemperatureEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * 
@@ -15,5 +16,7 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface TemperatureDao extends BaseMapper<TemperatureEntity> {
-	
+
+    List<TemperatureEntity> selectListByDevice(@Param("deviceId")int deviceId, @Param("size")int size);
+
 }

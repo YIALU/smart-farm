@@ -1,10 +1,8 @@
-package com.ls.smartfarm.smartfarm
-
--device.service;
+package com.ls.smartfarm.device.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.ls.smartfarm.device.common.utils.PageUtils;
-import com.ls.smartfarm.smartfarm-device.entity.TemperatureEntity;
+import com.ls.smartfarm.common.utils.PageUtils;
+import com.ls.smartfarm.device.entity.TemperatureEntity;
 
 import java.util.Map;
 

@@ -1,10 +1,11 @@
-package com.ls.smartfarm.smartfarm
-
--device.service;
+package com.ls.smartfarm.device.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.ls.smartfarm.device.common.utils.PageUtils;
-import com.ls.smartfarm.smartfarm-device.entity.DeviceEntity;
+
+import com.ls.smartfarm.common.utils.PageUtils;
+import com.ls.smartfarm.common.utils.R;
+import com.ls.smartfarm.device.entity.DeviceEntity;
+
 
 import java.util.Map;
 
@@ -18,5 +19,7 @@ import java.util.Map;
 public interface DeviceService extends IService<DeviceEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    R getdevicedata(String type, Integer did, Integer s);
 }
 

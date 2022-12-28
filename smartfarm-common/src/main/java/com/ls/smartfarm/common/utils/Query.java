@@ -6,15 +6,13 @@
  * 版权所有，侵权必究！
  */
 
-package com.ls.common.utils;
+package com.ls.smartfarm.common.utils;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.ls.common.xss.SQLFilter;
-
-
+import com.ls.smartfarm.common.xss.SQLFilter;
 import java.util.Map;
 
 /**

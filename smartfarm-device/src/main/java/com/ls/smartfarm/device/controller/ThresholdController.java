@@ -1,11 +1,11 @@
-package com.ls.smartfarm.smartfarm
-
--device.controller;
+package com.ls.smartfarm.device.controller;
 
 import java.util.Arrays;
 import java.util.Map;
 
-import org.apache.shiro.authz.annotation.RequiresPermissions;
+
+import com.ls.smartfarm.common.utils.PageUtils;
+import com.ls.smartfarm.common.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,10 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ls.smartfarm.smartfarm-device.entity.ThresholdEntity;
-import com.ls.smartfarm.smartfarm-device.service.ThresholdService;
-import com.ls.smartfarm.device.common.utils.PageUtils;
-import com.ls.smartfarm.device.common.utils.R;
+import com.ls.smartfarm.device.entity.ThresholdEntity;
+import com.ls.smartfarm.device.service.ThresholdService;
+
 
 
 
@@ -28,7 +27,7 @@ import com.ls.smartfarm.device.common.utils.R;
  * @date 2022-12-12 14:27:19
  */
 @RestController
-@RequestMapping("smartfarm-device/threshold")
+@RequestMapping("device/threshold")
 public class ThresholdController {
     @Autowired
     private ThresholdService thresholdService;
@@ -37,7 +36,7 @@ public class ThresholdController {
      * 列表
      */
     @RequestMapping("/list")
-    @RequiresPermissions("smartfarm-device:threshold:list")
+    // @RequiresPermissions("smartfarm-device:threshold:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = thresholdService.queryPage(params);
 
@@ -49,7 +48,7 @@ public class ThresholdController {
      * 信息
      */
     @RequestMapping("/info/{id}")
-    @RequiresPermissions("smartfarm-device:threshold:info")
+    // @RequiresPermissions("smartfarm-device:threshold:info")
     public R info(@PathVariable("id") Long id){
 		ThresholdEntity threshold = thresholdService.getById(id);
 
@@ -60,7 +59,7 @@ public class ThresholdController {
      * 保存
      */
     @RequestMapping("/save")
-    @RequiresPermissions("smartfarm-device:threshold:save")
+    // @RequiresPermissions("smartfarm-device:threshold:save")
     public R save(@RequestBody ThresholdEntity threshold){
 		thresholdService.save(threshold);
 
@@ -71,7 +70,7 @@ public class ThresholdController {
      * 修改
      */
     @RequestMapping("/update")
-    @RequiresPermissions("smartfarm-device:threshold:update")
+    // @RequiresPermissions("smartfarm-device:threshold:update")
     public R update(@RequestBody ThresholdEntity threshold){
 		thresholdService.updateById(threshold);
 
@@ -82,7 +81,7 @@ public class ThresholdController {
      * 删除
      */
     @RequestMapping("/delete")
-    @RequiresPermissions("smartfarm-device:threshold:delete")
+    // @RequiresPermissions("smartfarm-device:threshold:delete")
     public R delete(@RequestBody Long[] ids){
 		thresholdService.removeByIds(Arrays.asList(ids));
 

@@ -1,11 +1,11 @@
-package com.ls.smartfarm.smartfarm
-
--device.controller;
+package com.ls.smartfarm.device.controller;
 
 import java.util.Arrays;
 import java.util.Map;
 
-import org.apache.shiro.authz.annotation.RequiresPermissions;
+
+import com.ls.smartfarm.common.utils.PageUtils;
+import com.ls.smartfarm.common.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,10 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ls.smartfarm.smartfarm-device.entity.TemperatureEntity;
-import com.ls.smartfarm.smartfarm-device.service.TemperatureService;
-import com.ls.smartfarm.device.common.utils.PageUtils;
-import com.ls.smartfarm.device.common.utils.R;
+import com.ls.smartfarm.device.entity.TemperatureEntity;
+import com.ls.smartfarm.device.service.TemperatureService;
+
 
 
 
@@ -28,7 +27,7 @@ import com.ls.smartfarm.device.common.utils.R;
  * @date 2022-12-12 14:27:19
  */
 @RestController
-@RequestMapping("smartfarm-device/temperature")
+@RequestMapping("device/temperature")
 public class TemperatureController {
     @Autowired
     private TemperatureService temperatureService;
@@ -37,7 +36,7 @@ public class TemperatureController {
      * 列表
      */
     @RequestMapping("/list")
-    @RequiresPermissions("smartfarm-device:temperature:list")
+    // @RequiresPermissions("smartfarm-device:temperature:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = temperatureService.queryPage(params);
 
@@ -49,7 +48,7 @@ public class TemperatureController {
      * 信息
      */
     @RequestMapping("/info/{id}")
-    @RequiresPermissions("smartfarm-device:temperature:info")
+    // @RequiresPermissions("smartfarm-device:temperature:info")
     public R info(@PathVariable("id") Long id){
 		TemperatureEntity temperature = temperatureService.getById(id);
 
@@ -60,7 +59,7 @@ public class TemperatureController {
      * 保存
      */
     @RequestMapping("/save")
-    @RequiresPermissions("smartfarm-device:temperature:save")
+    // @RequiresPermissions("smartfarm-device:temperature:save")
     public R save(@RequestBody TemperatureEntity temperature){
 		temperatureService.save(temperature);
 
@@ -71,7 +70,7 @@ public class TemperatureController {
      * 修改
      */
     @RequestMapping("/update")
-    @RequiresPermissions("smartfarm-device:temperature:update")
+    // @RequiresPermissions("smartfarm-device:temperature:update")
     public R update(@RequestBody TemperatureEntity temperature){
 		temperatureService.updateById(temperature);
 
@@ -82,7 +81,7 @@ public class TemperatureController {
      * 删除
      */
     @RequestMapping("/delete")
-    @RequiresPermissions("smartfarm-device:temperature:delete")
+    // @RequiresPermissions("smartfarm-device:temperature:delete")
     public R delete(@RequestBody Long[] ids){
 		temperatureService.removeByIds(Arrays.asList(ids));
 

@@ -1,6 +1,4 @@
-package com.ls.smartfarm.smartfarm
-
--device.entity;
+package com.ls.smartfarm.device.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;

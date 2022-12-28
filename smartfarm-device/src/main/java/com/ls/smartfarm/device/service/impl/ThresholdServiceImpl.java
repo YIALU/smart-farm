@@ -1,18 +1,17 @@
-package com.ls.smartfarm.smartfarm
+package com.ls.smartfarm.device.service.impl;
 
--device.service.impl;
-
+import com.ls.smartfarm.common.utils.PageUtils;
+import com.ls.smartfarm.common.utils.Query;
 import org.springframework.stereotype.Service;
 import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.ls.smartfarm.device.common.utils.PageUtils;
-import com.ls.smartfarm.device.common.utils.Query;
 
-import com.ls.smartfarm.smartfarm-device.dao.ThresholdDao;
-import com.ls.smartfarm.smartfarm-device.entity.ThresholdEntity;
-import com.ls.smartfarm.smartfarm-device.service.ThresholdService;
+
+import com.ls.smartfarm.device.dao.ThresholdDao;
+import com.ls.smartfarm.device.entity.ThresholdEntity;
+import com.ls.smartfarm.device.service.ThresholdService;
 
 
 @Service("thresholdService")

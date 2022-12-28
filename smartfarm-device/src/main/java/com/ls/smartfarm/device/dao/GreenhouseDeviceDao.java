@@ -1,8 +1,6 @@
-package com.ls.smartfarm.smartfarm
+package com.ls.smartfarm.device.dao;
 
--device.dao;
-
-import com.ls.smartfarm.smartfarm-device.entity.GreenhouseDeviceEntity;
+import com.ls.smartfarm.device.entity.GreenhouseDeviceEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 

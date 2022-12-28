@@ -6,7 +6,7 @@
  * 版权所有，侵权必究！
  */
 
-package com.ls.common.utils;
+package com.ls.smartfarm.common.utils;
 
 
 

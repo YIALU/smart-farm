@@ -1,4 +1,4 @@
-package com.ls.common.xss;
+package com.ls.smartfarm.common.xss;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;

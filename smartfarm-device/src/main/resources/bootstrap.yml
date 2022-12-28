@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: smartfarm-device
+  cloud:
+    nacos:
+      config:
+        server-addr: 42.193.97.35:8848
+        file-extension: yml #配置的格式 yml
+        namespace: smart-farm
+        group: dev
+        ext-config[0].data-id: default-application.yml
+        ext-config[0].refresh: true
+        ext-config[0].group: dev

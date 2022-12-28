@@ -1,22 +1,18 @@
-package com.ls.smartfarm.smartfarm
-
--device.controller;
+package com.ls.smartfarm.device.controller;
 
 import java.util.Arrays;
 import java.util.Map;
-
-import org.apache.shiro.authz.annotation.RequiresPermissions;
+import com.ls.smartfarm.common.utils.PageUtils;
+import com.ls.smartfarm.common.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import com.ls.smartfarm.device.entity.GreenhouseEntity;
+import com.ls.smartfarm.device.service.GreenhouseService;
 
-import com.ls.smartfarm.smartfarm-device.entity.GreenhouseEntity;
-import com.ls.smartfarm.smartfarm-device.service.GreenhouseService;
-import com.ls.smartfarm.device.common.utils.PageUtils;
-import com.ls.smartfarm.device.common.utils.R;
 
 
 
@@ -28,7 +24,7 @@ import com.ls.smartfarm.device.common.utils.R;
  * @date 2022-12-12 14:27:20
  */
 @RestController
-@RequestMapping("smartfarm-device/greenhouse")
+@RequestMapping("device/greenhouse")
 public class GreenhouseController {
     @Autowired
     private GreenhouseService greenhouseService;
@@ -37,7 +33,7 @@ public class GreenhouseController {
      * 列表
      */
     @RequestMapping("/list")
-    @RequiresPermissions("smartfarm-device:greenhouse:list")
+    // @RequiresPermissions("smartfarm-device:greenhouse:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = greenhouseService.queryPage(params);
 
@@ -49,7 +45,7 @@ public class GreenhouseController {
      * 信息
      */
     @RequestMapping("/info/{id}")
-    @RequiresPermissions("smartfarm-device:greenhouse:info")
+    // @RequiresPermissions("smartfarm-device:greenhouse:info")
     public R info(@PathVariable("id") Long id){
 		GreenhouseEntity greenhouse = greenhouseService.getById(id);
 
@@ -60,7 +56,7 @@ public class GreenhouseController {
      * 保存
      */
     @RequestMapping("/save")
-    @RequiresPermissions("smartfarm-device:greenhouse:save")
+    // @RequiresPermissions("smartfarm-device:greenhouse:save")
     public R save(@RequestBody GreenhouseEntity greenhouse){
 		greenhouseService.save(greenhouse);
 
@@ -71,7 +67,7 @@ public class GreenhouseController {
      * 修改
      */
     @RequestMapping("/update")
-    @RequiresPermissions("smartfarm-device:greenhouse:update")
+    // @RequiresPermissions("smartfarm-device:greenhouse:update")
     public R update(@RequestBody GreenhouseEntity greenhouse){
 		greenhouseService.updateById(greenhouse);
 
@@ -82,7 +78,7 @@ public class GreenhouseController {
      * 删除
      */
     @RequestMapping("/delete")
-    @RequiresPermissions("smartfarm-device:greenhouse:delete")
+    // @RequiresPermissions("smartfarm-device:greenhouse:delete")
     public R delete(@RequestBody Long[] ids){
 		greenhouseService.removeByIds(Arrays.asList(ids));
 

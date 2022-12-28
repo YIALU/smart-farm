@@ -6,10 +6,11 @@
  * 版权所有，侵权必究！
  */
 
-package com.ls.common.xss;
+package com.ls.smartfarm.common.xss;
 
 
-import com.ls.common.utils.RRException;
+
+import com.ls.smartfarm.common.utils.RRException;
 import org.apache.commons.lang.StringUtils;
 
 /**

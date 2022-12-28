@@ -210,11 +210,11 @@
         WHERE id = #{id,jdbcType=INTEGER}
     </select>
 
-    <select id="selectLogin" resultMap="BaseResultMap" parameterType="map">
+    <select id="selectLogin" resultType="com.ls.smartfarm.device.entity.UserEntity" >
         SELECT
-        <include refid="Base_Column_List"/>
+        id,username, phone, password
         FROM farm_user
-        WHERE username = #{username}
+        WHERE phone = #{phone}
         AND password = #{password}
     </select>
 
@@ -239,6 +239,9 @@
         SELECT count(*)
         FROM farm_user
         WHERE to_days(create_time) = to_days(subdate(curdate(), date_format(curdate(), '%w') + #{day}));
+    </select>
+    <select id="login" resultType="com.ls.smartfarm.device.entity.UserEntity">
+        SELECT
     </select>
 
 

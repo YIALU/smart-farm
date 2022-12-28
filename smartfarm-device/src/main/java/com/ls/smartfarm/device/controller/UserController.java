@@ -1,24 +1,18 @@
-package com.ls.smartfarm.smartfarm
-
--device.controller;
+package com.ls.smartfarm.device.controller;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.shiro.authz.annotation.RequiresPermissions;
+
+import com.ls.smartfarm.common.utils.PageUtils;
+import com.ls.smartfarm.common.utils.R;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import com.ls.smartfarm.smartfarm-device.entity.UserEntity;
-import com.ls.smartfarm.smartfarm-device.service.UserService;
-import com.ls.smartfarm.device.common.utils.PageUtils;
-import com.ls.smartfarm.device.common.utils.R;
-
-
+import com.ls.smartfarm.device.entity.UserEntity;
+import com.ls.smartfarm.device.service.UserService;
 
 /**
  * 
@@ -27,17 +21,45 @@ import com.ls.smartfarm.device.common.utils.R;
  * @email 2210987889@qq.com
  * @date 2022-12-12 14:27:19
  */
+@Slf4j
 @RestController
-@RequestMapping("smartfarm-device/user")
+@RequestMapping("device/user")
 public class UserController {
     @Autowired
     private UserService userService;
+
+
+    /**
+     * 查询用户拥有的所有设备
+     */
+    @GetMapping("/userDeviceList")
+    public R userDeviceList(@RequestParam Integer uid){
+        log.info(uid.toString());
+        return userService.selectUserAllDevice(uid);
+
+    }
+
+
+    /**
+     * 登录
+     */
+    @PostMapping("/loginWithPwd")
+    public R loginWithPwd(@RequestBody HashMap<String, Object> map){
+
+        log.info(map.toString());
+
+        String phone = (String) map.get("phone");
+        String password = (String) map.get("password");
+
+
+        return userService.login(phone, password);
+    }
 
     /**
      * 列表
      */
     @RequestMapping("/list")
-    @RequiresPermissions("smartfarm-device:user:list")
+    // @RequiresPermissions("smartfarm-device:user:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = userService.queryPage(params);
 
@@ -49,7 +71,7 @@ public class UserController {
      * 信息
      */
     @RequestMapping("/info/{id}")
-    @RequiresPermissions("smartfarm-device:user:info")
+    // @RequiresPermissions("smartfarm-device:user:info")
     public R info(@PathVariable("id") Integer id){
 		UserEntity user = userService.getById(id);
 
@@ -60,7 +82,7 @@ public class UserController {
      * 保存
      */
     @RequestMapping("/save")
-    @RequiresPermissions("smartfarm-device:user:save")
+    // @RequiresPermissions("smartfarm-device:user:save")
     public R save(@RequestBody UserEntity user){
 		userService.save(user);
 
@@ -71,7 +93,7 @@ public class UserController {
      * 修改
      */
     @RequestMapping("/update")
-    @RequiresPermissions("smartfarm-device:user:update")
+    // @RequiresPermissions("smartfarm-device:user:update")
     public R update(@RequestBody UserEntity user){
 		userService.updateById(user);
 
@@ -82,7 +104,7 @@ public class UserController {
      * 删除
      */
     @RequestMapping("/delete")
-    @RequiresPermissions("smartfarm-device:user:delete")
+    // @RequiresPermissions("smartfarm-device:user:delete")
     public R delete(@RequestBody Integer[] ids){
 		userService.removeByIds(Arrays.asList(ids));
 

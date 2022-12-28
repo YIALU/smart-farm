@@ -6,7 +6,7 @@
  * 版权所有，侵权必究！
  */
 
-package com.ls.common.utils;
+package com.ls.smartfarm.common.utils;
 
 import org.apache.http.HttpStatus;
 
@@ -22,7 +22,7 @@ public class R extends HashMap<String, Object> {
 	private static final long serialVersionUID = 1L;
 	
 	public R() {
-		put("code", 0);
+		put("code", 2000);
 		put("msg", "success");
 	}
 	

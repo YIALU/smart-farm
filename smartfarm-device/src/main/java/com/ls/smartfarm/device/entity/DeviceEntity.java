@@ -1,11 +1,10 @@
-package com.ls.smartfarm.smartfarm
-
--device.entity;
+package com.ls.smartfarm.device.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.Date;
 import lombok.Data;
 
@@ -33,11 +32,7 @@ public class DeviceEntity implements Serializable {
 	/**
 	 * 设备型号
 	 */
-	private Integer model;
-	/**
-	 * 认证token
-	 */
-	private String token;
+	private String model;
 	/**
 	 * 
 	 */
@@ -51,12 +46,8 @@ public class DeviceEntity implements Serializable {
 	 */
 	private Date updateTime;
 	/**
-	 * 经度
+	 *是否开启
 	 */
-	private Float lng;
-	/**
-	 * 纬度
-	 */
-	private Float lat;
+	private Integer isRun;
 
 }
